@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>My example</title>
+    <script type="text/javascript" src="Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="Scripts/example.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/example.css">
+</head>
+<body> 
+    <h2>Cloris' dynamic list manipulation example</h2>
+    <p></p>
+    <p>This page uses HTML 5, CSS, jQuery 1.10 and JSON. When the page loads, it uses jQuery ajax method $.getJSON() to retrieve JSON data from a text file on the server, and stores it in a variable.</p>
+<p>Each time the refresh button is pushed, the onclick handler gets an entry from the data and appends it to the list using jQuery. The reset button clears up the list.
+</p>
+    <p>
+        <a href="#" class="myButton" id="clearBtn" onclick="ClearList()">Reset</a>&nbsp; &nbsp; &nbsp;<a href="#" class="myButton" id="refreshBtn" onclick="RefreshList()">Refresh</a>
+    </p>
+    <br />
+    <ul class="a" id="ulist">
+    </ul>
+    <script>
+        $(document).ready(function () {
+            i = 0;
+            items = [];
+            $.getJSON("Ajax/data.json", function (data) {
+               items = data.data;
+               RefreshList();
+             
+           })
+    })
+    </script>
+    </body>
+</html>
